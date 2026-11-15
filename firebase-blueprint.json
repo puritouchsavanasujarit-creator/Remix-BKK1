@@ -1,0 +1,164 @@
+{
+  "entities": {
+    "Order": {
+      "title": "Order",
+      "description": "BKK Flower agent order document with delivery feasibility details",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Order unique identifier",
+          "maxLength": 128
+        },
+        "orderNumber": {
+          "type": "string",
+          "description": "Human-readable order sequence number",
+          "maxLength": 64
+        },
+        "invoiceNumber": {
+          "type": "string",
+          "description": "Invoice number IV-XXXX",
+          "maxLength": 64
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp or creation date",
+          "maxLength": 64
+        },
+        "orderTime": {
+          "type": "string",
+          "description": "Order placement time string HH:mm",
+          "maxLength": 32
+        },
+        "channel": {
+          "type": "string",
+          "description": "Sale source channel",
+          "maxLength": 64
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Customer recipient or ordering contact name",
+          "maxLength": 128
+        },
+        "customerPhone": {
+          "type": "string",
+          "description": "Customer contact telephone number",
+          "maxLength": 32
+        },
+        "productName": {
+          "type": "string",
+          "description": "Flower bouquet or product name",
+          "maxLength": 128
+        },
+        "productCode": {
+          "type": "string",
+          "description": "Inventory product SKU code",
+          "maxLength": 64
+        },
+        "productPrice": {
+          "type": "number",
+          "description": "Base price of flower arrangement in THB"
+        },
+        "deliveryFee": {
+          "type": "number",
+          "description": "Calculated delivery surcharge in THB"
+        },
+        "totalPrice": {
+          "type": "number",
+          "description": "Total order price in THB"
+        },
+        "deliveryAddress": {
+          "type": "string",
+          "description": "Delivery destination address in Bangkok",
+          "maxLength": 500
+        },
+        "distanceKm": {
+          "type": "number",
+          "description": "Distance from BKK hub in kilometers"
+        },
+        "deliveryType": {
+          "type": "string",
+          "description": "Delivery method type",
+          "maxLength": 64
+        },
+        "desiredReceiveDate": {
+          "type": "string",
+          "description": "Target delivery date",
+          "maxLength": 64
+        },
+        "desiredReceiveTime": {
+          "type": "string",
+          "description": "Target delivery time slot",
+          "maxLength": 64
+        },
+        "cardMessage": {
+          "type": "string",
+          "description": "Greeting card message text",
+          "maxLength": 1000
+        },
+        "specialInstructions": {
+          "type": "string",
+          "description": "Special preparation notes or handling instructions",
+          "maxLength": 1000
+        },
+        "floristName": {
+          "type": "string",
+          "description": "Assigned florist name",
+          "maxLength": 128
+        },
+        "messengerName": {
+          "type": "string",
+          "description": "Assigned rider / messenger name",
+          "maxLength": 128
+        },
+        "messengerPhone": {
+          "type": "string",
+          "description": "Assigned rider contact telephone",
+          "maxLength": 32
+        },
+        "trackingRef": {
+          "type": "string",
+          "description": "Rider delivery tracking reference code",
+          "maxLength": 128
+        },
+        "opStatus": {
+          "type": "string",
+          "description": "Operation manager approval status",
+          "maxLength": 32
+        },
+        "opNotes": {
+          "type": "string",
+          "description": "Notes from Operation manager",
+          "maxLength": 1000
+        },
+        "deliveryStatus": {
+          "type": "string",
+          "description": "Current delivery fulfillment status",
+          "maxLength": 32
+        },
+        "shiftCategory": {
+          "type": "string",
+          "description": "SOP time shift slot category",
+          "maxLength": 32
+        },
+        "lineGroupTarget": {
+          "type": "string",
+          "description": "Target notification Line group",
+          "maxLength": 64
+        },
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of agent who created the record",
+          "maxLength": 128
+        }
+      },
+      "required": ["orderNumber", "customerName", "productName", "deliveryAddress"]
+    }
+  },
+  "firestore": {
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Collection of flower orders registered and evaluated by BKK agents"
+    }
+  }
+}

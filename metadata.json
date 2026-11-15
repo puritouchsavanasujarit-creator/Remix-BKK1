@@ -1,0 +1,8 @@
+{
+  "name": "Remix BKK Flower Agent Order \u0026 Feasibility Hub",
+  "description": "ระบบวิเคราะห์และลงบันทึกคำสั่งซื้อสำหรับเอเจนท์ขายดอกไม้สาขา BKK ตามคู่มือการขายและข้อกำหนดระยะเวลาจัดส่ง (Sale Process SOP)",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
